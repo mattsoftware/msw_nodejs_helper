@@ -1,0 +1,6 @@
+
+coverage
+flow-typed
+node_modules
+*.swp
+

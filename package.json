@@ -1,0 +1,41 @@
+{
+  "name": "msw_nodejs_helper",
+  "version": "0.0.1",
+  "description": "Some helper functions which turn some everyday node tasks into promises",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-bin": "^0.78.0",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.5.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "yarn run test --watchAll",
+    "test:coverage": "yarn run test --coverage",
+    "flow": "watch flow"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!index.js",
+      "!coverage/**",
+      "!flow-typed/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattsoftware/msw_nodejs_helper.git"
+  },
+  "keywords": [
+    "nodejs",
+    "promise"
+  ],
+  "author": "Matt Paine <matt@mattsoftware.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattsoftware/msw_nodejs_helper/issues"
+  },
+  "homepage": "https://github.com/mattsoftware/msw_nodejs_helper#readme"
+}
