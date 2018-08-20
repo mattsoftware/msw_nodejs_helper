@@ -1,6 +1,6 @@
 {
   "name": "msw_nodejs_helper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Some helper functions which turn some everyday node tasks into promises",
   "main": "index.js",
   "license": "MIT",
@@ -33,7 +33,6 @@
     "promise"
   ],
   "author": "Matt Paine <matt@mattsoftware.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mattsoftware/msw_nodejs_helper/issues"
   },
