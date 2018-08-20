@@ -2,7 +2,7 @@
 //@flow
 const http = require('http');
 
-const fetch = (url/*:string*/) => {
+const fetch = (url/*:string*/)/*:Promise<string>*/ => {
     return new Promise((res, rej) => {
         http.get(url, response => {
             if (response.statusCode !== 200) {

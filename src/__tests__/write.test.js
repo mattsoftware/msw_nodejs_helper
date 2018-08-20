@@ -20,6 +20,7 @@ describe('write file tests', () => {
     test('writes the file', () => {
         return write('/blah', 'content')
         .then(v => {
+            expect(v).toBe(true);
             expect(read.mock.calls).toEqual([
                 ['/blah'],
             ]);
@@ -33,6 +34,7 @@ describe('write file tests', () => {
         read.mockImplementationOnce(path => Promise.resolve('test content'));
         return write('/blah', 'test content')
         .then(v => {
+            expect(v).toBe(false);
             expect(read.mock.calls).toEqual([
                 ['/blah'],
             ]);
@@ -44,6 +46,7 @@ describe('write file tests', () => {
         read.mockImplementationOnce(path => Promise.resolve('oh oh'));
         return write('/blah', 'content')
         .then(v => {
+            expect(v).toBe(true);
             expect(fs.writeFile.mock.calls).toEqual([
                 ['/blah', 'content', expect.anything()],
             ]);

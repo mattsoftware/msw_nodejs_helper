@@ -2,7 +2,7 @@
 //@flow
 const {spawn} = require('child_process');
 
-const run = (cmd/*:string*/, args/*:Array<string>*/, options/*:?child_process$spawnOpts*/) => {
+const run = (cmd/*:string*/, args/*:Array<string>*/, options/*:?child_process$spawnOpts*/)/*:Promise<{stdout: string, stderr: string, code: number}>*/ => {
     return new Promise((res, rej) => {
         //$FlowFixMe
         const c = spawn(cmd, args, options);
