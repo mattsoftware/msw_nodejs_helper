@@ -22,5 +22,25 @@ describe('read file tests', () => {
             ]);
         });
     });
+
+    test('reads a text file', () => {
+        return read('/blah', 'text')
+        .then(v => {
+            expect(v).toEqual('test content');
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
+
+    test('reads a binary file', () => {
+        return read('/blah', 'binary')
+        .then(v => {
+            expect(v).toEqual(Buffer.from('test content'));
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
 });
 
