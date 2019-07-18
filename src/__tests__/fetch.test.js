@@ -23,7 +23,7 @@ describe('fetch tests', () => {
         response.on = Object.getPrototypeOf(Object.getPrototypeOf(response)).on;
 
         //$FlowFixMe
-        http.get = jest.fn((url, cb) => {
+        http.get = jest.fn((url, options, cb) => {
             //$FlowFixMe
             response.statusCode = 200;
             //$FlowFixMe
@@ -44,7 +44,7 @@ describe('fetch tests', () => {
         const response = new http.ClientRequest();
 
         //$FlowFixMe
-        http.get = jest.fn((url, cb) => {
+        http.get = jest.fn((url, options, cb) => {
             //$FlowFixMe
             response.statusCode = 404;
             //$FlowFixMe
@@ -67,7 +67,7 @@ describe('fetch tests', () => {
         response.on = Object.getPrototypeOf(Object.getPrototypeOf(response)).on;
 
         //$FlowFixMe
-        http.get = jest.fn((url, cb) => {
+        http.get = jest.fn((url, options, cb) => {
             //$FlowFixMe
             response.statusCode = 200;
             //$FlowFixMe
@@ -93,7 +93,7 @@ describe('fetch tests', () => {
         response.on = Object.getPrototypeOf(Object.getPrototypeOf(response)).on;
 
         //$FlowFixMe
-        https.get = jest.fn((url, cb) => {
+        https.get = jest.fn((url, options, cb) => {
             //$FlowFixMe
             response.statusCode = 200;
             //$FlowFixMe

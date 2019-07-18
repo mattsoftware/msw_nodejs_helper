@@ -7,7 +7,7 @@ const fetch = (url/*:string*/)/*:Promise<string>*/ => {
     return Promise.resolve(url.match(/^https:/) ? https : http)
     .then(proto => {
         return new Promise((res, rej) => {
-            proto.get(url, response => {
+            proto.get(url, {headers: {accept: '*/*'}}, response => {
                 if (response.statusCode !== 200) {
                     rej(new Error('Status code was ' + response.statusCode));
                 }
