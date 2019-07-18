@@ -4,6 +4,8 @@
 const fetch = require('../fetch');
 const http = require('http');
 jest.mock('http');
+const https = require('https');
+jest.mock('https');
 const { EventEmitter } = require('events');
 const {inherits} = require('util');
 inherits(http.ClientRequest, EventEmitter);
@@ -80,6 +82,31 @@ describe('fetch tests', () => {
         })
         .catch(e => {
             expect(e).toEqual(new Error('something went wrong'));
+        });
+    });
+
+    test('should fetch https', () => {
+        const response = new http.ClientRequest();
+        //$FlowFixMe
+        response.emit = Object.getPrototypeOf(Object.getPrototypeOf(response)).emit;
+        //$FlowFixMe
+        response.on = Object.getPrototypeOf(Object.getPrototypeOf(response)).on;
+
+        //$FlowFixMe
+        https.get = jest.fn((url, cb) => {
+            //$FlowFixMe
+            response.statusCode = 200;
+            //$FlowFixMe
+            cb(response);
+        });
+        process.nextTick(() => {
+            response.emit('data', 'hello ');
+            response.emit('data', 'there');
+            process.nextTick(() => response.emit('end'));
+        });
+        return fetch('https://www.google.com.au')
+        .then(d => {
+            expect(d).toEqual('hello there');
         });
     });
 });
