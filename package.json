@@ -1,6 +1,6 @@
 {
   "name": "msw_nodejs_helper",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some helper functions which turn some everyday node tasks into promises",
   "main": "index.js",
   "license": "MIT",
