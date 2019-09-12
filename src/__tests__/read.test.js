@@ -42,5 +42,27 @@ describe('read file tests', () => {
             ]);
         });
     });
+
+    test('reads a json file', () => {
+        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, new Buffer('{"test":"content"}')));
+        return read('/blah', 'json')
+        .then(v => {
+            expect(v).toEqual({"test": "content"});
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
+
+    test('throws on bad json', () => {
+        return read('/blah', 'json')
+        .then(v => expect(true).toBe(false))
+        .catch(err => {
+            expect(err).toEqual(new SyntaxError("Unexpected token e in JSON at position 1"));
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
 });
 
