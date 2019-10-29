@@ -1,4 +1,4 @@
-//@flow
+//@flow strict
 
 const touch = require('../touch');
 const fs = require('fs');

@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 const {spawn} = require('child_process');
 
 const run = (cmd/*:string*/, args/*:Array<string>*/, options/*:?child_process$spawnOpts*/)/*:Promise<{stdout: string, stderr: string, code: number}>*/ => {

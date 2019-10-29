@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 /*:: import type { JestMockT } from 'jest' */
 
 const read/*:JestMockT*/ = require('../read');

@@ -1,6 +1,6 @@
 'use strict';
-//@flow
-/*:: type FileReadType = "text"|"binary|"json""*/
+//@flow strict
+/*:: type FileReadType = "text"|"binary"|"json"*/
 
 const {promisify} = require('util');
 const fs = require('fs');

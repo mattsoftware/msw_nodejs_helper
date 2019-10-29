@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 
 const run = require('../run');
 const child_process = require('child_process');

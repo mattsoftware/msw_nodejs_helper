@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 const exists = require('./src/exists');
 const fetch = require('./src/fetch');
 const read = require('./src/read');

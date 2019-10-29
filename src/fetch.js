@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 const http = require('http');
 const https = require('https');
 

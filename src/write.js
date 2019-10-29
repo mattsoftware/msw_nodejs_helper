@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 const {promisify} = require('util');
 const fs = require('fs');
 const read = require('./read');

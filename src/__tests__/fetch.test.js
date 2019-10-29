@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 
 const fetch = require('../fetch');
 const http = require('http');

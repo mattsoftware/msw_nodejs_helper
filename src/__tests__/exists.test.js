@@ -1,5 +1,5 @@
 'use strict';
-//@flow
+//@flow strict
 
 const exists = require('../exists');
 jest.mock('fs');
