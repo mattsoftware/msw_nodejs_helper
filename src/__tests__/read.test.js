@@ -17,6 +17,7 @@ describe('read file tests', () => {
         return read('/blah')
         .then(v => {
             expect(v).toEqual('test content');
+            //$FlowFixMe
             expect(fs.readFile.mock.calls).toEqual([
                 ['/blah', expect.anything()],
             ]);
@@ -27,6 +28,7 @@ describe('read file tests', () => {
         return read('/blah', 'text')
         .then(v => {
             expect(v).toEqual('test content');
+            //$FlowFixMe
             expect(fs.readFile.mock.calls).toEqual([
                 ['/blah', expect.anything()],
             ]);
@@ -37,6 +39,7 @@ describe('read file tests', () => {
         return read('/blah', 'binary')
         .then(v => {
             expect(v).toEqual(Buffer.from('test content'));
+            //$FlowFixMe
             expect(fs.readFile.mock.calls).toEqual([
                 ['/blah', expect.anything()],
             ]);
@@ -44,10 +47,12 @@ describe('read file tests', () => {
     });
 
     test('reads a json file', () => {
+        //$FlowFixMe
         fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, new Buffer('{"test":"content"}')));
         return read('/blah', 'json')
         .then(v => {
             expect(v).toEqual({"test": "content"});
+            //$FlowFixMe
             expect(fs.readFile.mock.calls).toEqual([
                 ['/blah', expect.anything()],
             ]);
@@ -59,6 +64,7 @@ describe('read file tests', () => {
         .then(v => expect(true).toBe(false))
         .catch(err => {
             expect(err).toEqual(new SyntaxError("Unexpected token e in JSON at position 1"));
+            //$FlowFixMe
             expect(fs.readFile.mock.calls).toEqual([
                 ['/blah', expect.anything()],
             ]);

@@ -6,7 +6,7 @@ const fs = require('fs');
 const touch = (path/*:string*/)/*:Promise<boolean>*/ => {
     const time = new Date();
     return new Promise((res, rej) => {
-        fs.utimes(path, time, time, err => {
+        fs.utimes(path, time.getTime(), time.getTime(), err => {
             if (err) {
                 fs.open(path, 'w', (err, fd) => {
                     if (err) {

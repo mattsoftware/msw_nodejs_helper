@@ -25,12 +25,15 @@ describe('touch file tests', () => {
         return touch('/blah')
         .then(v => {
             expect(v).toEqual(true);
+            //$FlowFixMe
             expect(fs.utimes.mock.calls).toEqual([
                 ['/blah', expect.anything(), expect.anything(), expect.anything()]
             ]);
+            //$FlowFixMe
             expect(fs.open.mock.calls).toEqual([
                 ['/blah', 'w', expect.anything()],
             ]);
+            //$FlowFixMe
             expect(fs.close.mock.calls).toEqual([
                 ['fd', expect.anything()],
             ]);
@@ -43,10 +46,13 @@ describe('touch file tests', () => {
         return touch('/blah')
         .then(v => {
             expect(v).toEqual(true);
+            //$FlowFixMe
             expect(fs.utimes.mock.calls).toEqual([
                 ['/blah', expect.anything(), expect.anything(), expect.anything()]
             ]);
+            //$FlowFixMe
             expect(fs.open.mock.calls).toEqual([]);
+            //$FlowFixMe
             expect(fs.close.mock.calls).toEqual([]);
         });
     });
@@ -56,12 +62,15 @@ describe('touch file tests', () => {
         .then(v => expect(true).toEqual(false))
         .catch(v => {
             expect(v).toEqual('open not implemented');
+            //$FlowFixMe
             expect(fs.utimes.mock.calls).toEqual([
                 ['/blah', expect.anything(), expect.anything(), expect.anything()]
             ]);
+            //$FlowFixMe
             expect(fs.open.mock.calls).toEqual([
                 ['/blah', 'w', expect.anything()],
             ]);
+            //$FlowFixMe
             expect(fs.close.mock.calls).toEqual([]);
         });
     });
@@ -73,12 +82,15 @@ describe('touch file tests', () => {
         .then(v => expect(true).toEqual(false))
         .catch(v => {
             expect(v).toEqual('close not implemented');
+            //$FlowFixMe
             expect(fs.utimes.mock.calls).toEqual([
                 ['/blah', expect.anything(), expect.anything(), expect.anything()]
             ]);
+            //$FlowFixMe
             expect(fs.open.mock.calls).toEqual([
                 ['/blah', 'w', expect.anything()],
             ]);
+            //$FlowFixMe
             expect(fs.close.mock.calls).toEqual([
                 ['fd', expect.anything()],
             ]);

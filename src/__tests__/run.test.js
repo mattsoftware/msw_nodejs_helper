@@ -23,6 +23,7 @@ describe('Tests the run function', () => {
         response.stdout = new EventEmitter();
         //$FlowFixMe
         response.stderr = new EventEmitter();
+        //$FlowFixMe
         child_process.spawn.mockImplementationOnce((cmd, args, options) => response);
         process.nextTick(() => {
             response.stderr.emit('data', 'oh oh');
@@ -32,6 +33,7 @@ describe('Tests the run function', () => {
         return run('ls', ['-lah'])
         .then(d => {
             expect(d).toEqual({stdout: 'testing', stderr: 'oh oh', code: 0});
+            //$FlowFixMe
             expect(child_process.spawn.mock.calls).toEqual([
                 ['ls', ['-lah'], undefined]
             ]);
@@ -48,6 +50,7 @@ describe('Tests the run function', () => {
         response.stdout = new EventEmitter();
         //$FlowFixMe
         response.stderr = new EventEmitter();
+        //$FlowFixMe
         child_process.spawn.mockImplementationOnce((cmd, args, options) => response);
         process.nextTick(() => {
             response.stderr.emit('data', 'oh oh');
@@ -57,6 +60,7 @@ describe('Tests the run function', () => {
         return run('ls', ['-lah'])
         .catch(e => {
             expect(e).toEqual(new Error('dang'));
+            //$FlowFixMe
             expect(child_process.spawn.mock.calls).toEqual([
                 ['ls', ['-lah'], undefined]
             ]);

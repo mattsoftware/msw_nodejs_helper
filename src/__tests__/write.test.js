@@ -24,6 +24,7 @@ describe('write file tests', () => {
             expect(read.mock.calls).toEqual([
                 ['/blah'],
             ]);
+            //$FlowFixMe
             expect(fs.writeFile.mock.calls).toEqual([
                 ['/blah', 'content', expect.anything()],
             ]);
@@ -38,6 +39,7 @@ describe('write file tests', () => {
             expect(read.mock.calls).toEqual([
                 ['/blah'],
             ]);
+            //$FlowFixMe
             expect(fs.writeFile.mock.calls).toEqual([]);
         });
     });
@@ -47,6 +49,7 @@ describe('write file tests', () => {
         return write('/blah', 'content')
         .then(v => {
             expect(v).toBe(true);
+            //$FlowFixMe
             expect(fs.writeFile.mock.calls).toEqual([
                 ['/blah', 'content', expect.anything()],
             ]);
