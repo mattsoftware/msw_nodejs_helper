@@ -27,7 +27,7 @@ describe('rm file tests', () => {
         fs.unlink.mockImplementationOnce((path, callback) => callback && callback('oops', null));
         return rm('/blah')
         .then(v => {
-            expect(v).toEqual(true);
+            expect(v).toEqual(false);
             //$FlowFixMe
             expect(fs.unlink.mock.calls).toEqual([
                 ['/blah', expect.anything()],
