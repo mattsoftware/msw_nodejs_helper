@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "flow-bin": "^0.78.0",
+    "flow-bin": "^0.110.1",
     "flow-typed": "^2.5.1",
     "jest": "^23.5.0"
   },
@@ -13,8 +13,9 @@
     "test": "jest",
     "test:watch": "yarn run test --watchAll",
     "test:coverage": "yarn run test --coverage",
-    "flow": "watch flow",
-    "flow:update": "flow-typed update"
+    "flow": "yarn flow:stop && watch flow",
+    "flow:update": "flow-typed update",
+    "flow:stop": "flow stop"
   },
   "jest": {
     "testEnvironment": "node",
