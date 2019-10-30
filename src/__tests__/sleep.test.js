@@ -21,8 +21,8 @@ describe('sleep tests', () => {
         const start = new Date();
         return sleep(4000).then(v => {
             const now = new Date();
-            expect(now - start).toBeGreaterThan(4000);
-            expect(now - start).toBeLessThan(4100);
+            expect(now - start).toBeGreaterThan(4000 - 1);
+            expect(now - start).toBeLessThan(4100 + 1);
         });
     });
 });
