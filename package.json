@@ -7,7 +7,7 @@
   "devDependencies": {
     "flow-bin": "^0.110.1",
     "flow-typed": "^2.5.1",
-    "jest": "^23.5.0"
+    "jest": "^24.9.0"
   },
   "scripts": {
     "test": "jest",
