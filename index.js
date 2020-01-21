@@ -1,6 +1,7 @@
 //@flow strict
 //@format
 
+const afp = require('./src/afp');
 const exists = require('./src/exists');
 const fetch = require('./src/fetch');
 const read = require('./src/read');
@@ -11,6 +12,7 @@ const touch = require('./src/touch');
 const write = require('./src/write');
 
 module.exports = {
+    afp,
     exists,
     fetch,
     read,
