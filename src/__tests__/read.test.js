@@ -4,7 +4,7 @@
 const fs = require('fs');
 jest.mock('fs');
 //$FlowFixMe
-fs.readFile = jest.fn((path, callback) => callback && callback(null, new Buffer('test content')));
+fs.readFile = jest.fn((path, callback) => callback && callback(null, Buffer.from('test content')));
 
 const read = require('../read');
 
@@ -48,7 +48,7 @@ describe('read file tests', () => {
 
     test('reads a json file', () => {
         //$FlowFixMe
-        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, new Buffer('{"test":"content"}')));
+        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, Buffer.from('{"test":"content"}')));
         return read('/blah', 'json')
         .then(v => {
             expect(v).toEqual({"test": "content"});
