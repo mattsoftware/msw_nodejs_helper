@@ -38,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/mattsoftware/msw_nodejs_helper/issues"
   },
-  "homepage": "https://github.com/mattsoftware/msw_nodejs_helper#readme"
+  "homepage": "https://github.com/mattsoftware/msw_nodejs_helper#readme",
+  "dependencies": {
+    "csv-parse": "^4.9.0"
+  }
 }

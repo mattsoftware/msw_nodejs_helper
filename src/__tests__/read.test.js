@@ -70,5 +70,35 @@ describe('read file tests', () => {
             ]);
         });
     });
+
+    test('reads a csv file', () => {
+        //$FlowFixMe
+        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, Buffer.from('one,two,three\nfour,five,six')));
+        return read('/blah', 'csv')
+        .then(v => {
+            expect(v).toEqual([{"one": "four", "two": "five", "three": "six"}]);
+            //$FlowFixMe
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
+
+    test('throws on a bad csv', () => {
+        //$FlowFixMe
+        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, Buffer.from('"one, two')));
+        return read('/blah', 'csv')
+        .catch(e => {
+            expect(e).toEqual(new Error('Quote Not Closed: the parsing is finished with an opening quote at line 1'));
+            return false;
+        })
+        .then(v => {
+            expect(v).toEqual(false);
+            //$FlowFixMe
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
 });
 
