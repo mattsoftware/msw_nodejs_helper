@@ -16,7 +16,7 @@ const read = (path/*:string*/, type/*:: :?FileReadType*/)/*:Promise<string>*/ =>
                 return JSON.parse(content.toString());
             case 'csv':
                 return new Promise((res,rej) => {
-                    csv_parse(content, {columns:true}, (err, output) => {
+                    csv_parse(content, {columns:true, relax_column_count: true}, (err, output) => {
                         if (err) {
                             rej(err);
                         } else {

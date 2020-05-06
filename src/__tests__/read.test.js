@@ -100,5 +100,19 @@ describe('read file tests', () => {
             ]);
         });
     });
+
+    test('csv parse does not throw on bad column count', () => {
+        //$FlowFixMe
+        fs.readFile.mockImplementationOnce((path, callback) => callback && callback(null, Buffer.from('one,two,three\nfour,five,six\nseven,eight')));
+        return read('/blah', 'csv')
+        .then(v => {
+            expect(v).toEqual([{"one": "four", "two": "five", "three": "six"}, {"one": "seven", "two": "eight"}]);
+            //$FlowFixMe
+            expect(fs.readFile.mock.calls).toEqual([
+                ['/blah', expect.anything()],
+            ]);
+        });
+    });
+
 });
 
